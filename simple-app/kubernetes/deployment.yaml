@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simple-nodejs-app
+  labels:
+    app: simple-nodejs-app
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: simple-nodejs-app
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: simple-nodejs-app
+    spec:
+      containers:
+      - image: dioneadam/simple-nodejs-app:latest
+        imagePullPolicy: Always
+        name: simple-nodejs-app
+        ports:
+        - containerPort: 3000
+          protocol: TCP
