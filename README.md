@@ -1,14 +1,19 @@
 # AWS EKS DEPLOYMENT
 
+<p align="center">
+  <img width="800" height="500" src="img/drawio_diagram.png">
+</p>
+
+
 ## CREATE EKS
 
-## Pre-requisites:
+### Pre-requisites:
 
  - ~/.aws/credentials
  - awscli configs done
  - terraform
 
-## Steps:
+### Steps:
 
  - go to /eks-provisioner
  - terraform init
@@ -17,7 +22,7 @@
 
 ## DEPLOY APP TO EKS
 
-## Pre-requisites:
+### Pre-requisites:
  - a kubectl setup for the AWS EKS cluster made
 
  for e.g 
@@ -31,10 +36,20 @@
  aws eks --region us-east-1 update-kubeconfig --name eks-cluster
  ```
 
-## Steps:
+### Steps:
 
  - run deploy-to-k8s.sh
 
 
+
+## Done!
+
+### Sugestion: 
+
+ - try scale the application
+
+  ```
+  kubectl scale deployment simple-nodejs-app --replicas 2
+  ```
 
  
